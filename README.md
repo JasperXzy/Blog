@@ -1,15 +1,16 @@
-# AstroPaper 📄
+# 徐正一的博客
 
-![AstroPaper](public/default-og.jpg)
-[![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1356898632249991861)
-![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![GitHub](https://img.shields.io/github/license/satnaing/astro-paper?color=%232F3741&style=for-the-badge)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white&style=for-the-badge)](https://conventionalcommits.org)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
+面向 `https://blog.jasperxzy.com/` 的个人博客，记录 AI、SLAM、机器人、多模态地点识别与嵌入式 AI 端侧部署相关内容。
 
-AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro blog theme. This theme is designed and crafted based on [my personal blog](https://satnaing.dev/blog).
+```bash
+pnpm install
+pnpm dev
+pnpm build
+```
 
-Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
+博客默认语言为中文，并保留英文国际化基础。文章位于 `src/content/posts/`，站点信息统一配置在 `astro-paper.config.ts`。
+
+本项目基于 [AstroPaper](https://github.com/satnaing/astro-paper) 构建，以下保留主题特性和维护文档。
 
 ## 🔥 Features
 
