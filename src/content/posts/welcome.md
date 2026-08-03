@@ -3,8 +3,7 @@ title: "博客初始化"
 pubDatetime: 2026-08-03T08:00:00+08:00
 featured: false
 draft: true
-tags:
-  - 随笔
+category: 随笔
 description: "用于验证博客写作与发布流程的第一篇草稿。"
 ---
 

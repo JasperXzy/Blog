@@ -4,7 +4,7 @@ import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
-import Tag from "@/components/Tag.astro";
+import Category from "@/components/Category.astro";
 import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
@@ -67,7 +67,7 @@ const {
   pubDatetime,
   modDatetime,
   timezone,
-  tags,
+  category,
   hideEditPost,
 } = post.data;
 
@@ -150,7 +150,11 @@ const ogImage = ogImageUrl
     <BackToTopButton />
 
     <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
+      <Category
+        category={slugifyStr(category)}
+        categoryName={category}
+        size="sm"
+      />
     </ul>
 
     <ShareLinks />

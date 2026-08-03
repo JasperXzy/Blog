@@ -2,7 +2,7 @@ export interface UIStrings {
   nav: {
     home: string;
     posts: string;
-    tags: string;
+    categories: string;
     about: string;
     archives: string;
     search: string;
@@ -13,7 +13,7 @@ export interface UIStrings {
     sharePostIntro: string;
     sharePostOn: string;
     sharePostViaEmail: string;
-    tagLabel: string;
+    categoryLabel: string;
     backToTop: string;
     goBack: string;
     editPage: string;
@@ -36,11 +36,11 @@ export interface UIStrings {
     allRightsReserved: string;
   };
   pages: {
-    tagTitle: string;
-    tagDesc: string;
+    categoryTitle: string;
+    categoryDesc: string;
 
-    tagsTitle: string;
-    tagsDesc: string;
+    categoriesTitle: string;
+    categoriesDesc: string;
 
     postsTitle: string;
     postsDesc: string;
