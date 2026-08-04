@@ -23,7 +23,9 @@
     ul,
     figcaption,
     table,
-    code {
+    code,
+    .katex,
+    .katex-display {
       @apply text-foreground;
     }
 

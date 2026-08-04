@@ -13,6 +13,6 @@ for (const [path, mod] of Object.entries(modules)) {
 }
 
 /** Returns UI strings for the configured site locale. */
-export function useTranslations(locale: string = "zh-CN"): UIStrings {
-  return translations[locale] ?? translations["zh-CN"];
+export function useTranslations(locale: string = "en"): UIStrings {
+  return translations[locale] ?? translations.en;
 }

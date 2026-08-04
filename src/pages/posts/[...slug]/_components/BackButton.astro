@@ -28,11 +28,50 @@ const t = useTranslations(locale);
   function updateGoBackUrl() {
     const backButton: HTMLAnchorElement | null =
       document.querySelector("#back-button");
+    if (!backButton) return;
 
-    const backUrl = sessionStorage.getItem("backUrl");
+    const fallbackUrl = backButton.getAttribute("href") ?? "/";
+    const storedBackUrl = sessionStorage.getItem("backUrl");
+    if (!storedBackUrl) return;
 
-    if (backUrl && backButton) {
-      backButton.href = backUrl;
+    try {
+      const backUrl = new URL(storedBackUrl, window.location.origin);
+
+      if (backUrl.origin !== window.location.origin) {
+        sessionStorage.removeItem("backUrl");
+        backButton.href = fallbackUrl;
+        return;
+      }
+
+      // The former paginated list lived at /posts/, /posts/2/, etc.
+      // It now lives at /, /2/, etc. Migrate stale session values.
+      const legacyPostsPage = backUrl.pathname.match(
+        /^(.*\/)posts(?:\/(\d+))?\/?$/
+      );
+
+      if (legacyPostsPage) {
+        const [, basePath, pageNumber] = legacyPostsPage;
+        backUrl.pathname =
+          pageNumber && pageNumber !== "1"
+            ? `${basePath}${pageNumber}/`
+            : basePath;
+        backUrl.search = "";
+        backUrl.hash = "";
+      }
+
+      const resolvedBackUrl = `${backUrl.pathname}${backUrl.search}${backUrl.hash}`;
+
+      if (backUrl.pathname === window.location.pathname) {
+        sessionStorage.removeItem("backUrl");
+        backButton.href = fallbackUrl;
+        return;
+      }
+
+      sessionStorage.setItem("backUrl", resolvedBackUrl);
+      backButton.href = resolvedBackUrl;
+    } catch {
+      sessionStorage.removeItem("backUrl");
+      backButton.href = fallbackUrl;
     }
   }
 

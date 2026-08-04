@@ -30,7 +30,7 @@ export default {
   home: {
     socialLinks: "Social Links",
     featured: "Featured",
-    recentPosts: "Recent Posts",
+    recentPosts: "Articles",
     allPosts: "All Posts",
   },
   footer: {

@@ -8,15 +8,18 @@ import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { unified } from "@astrojs/markdown-remark";
+import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import rehypeCallouts from "rehype-callouts";
+import rehypeKatex from "rehype-katex";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
+import { rehypeOpenLinksInNewTab } from "./src/utils/rehype/openLinksInNewTab";
 import config from "./astro-paper.config";
 
 export default defineConfig({
@@ -29,8 +32,8 @@ export default defineConfig({
     }),
   ],
   i18n: {
-    locales: ["zh-CN"],
-    defaultLocale: "zh-CN",
+    locales: ["en"],
+    defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
     },
@@ -38,10 +41,11 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [
+        remarkMath,
         remarkToc,
         [remarkCollapse, { test: "Table of contents" }],
       ],
-      rehypePlugins: [rehypeCallouts],
+      rehypePlugins: [rehypeCallouts, rehypeKatex, rehypeOpenLinksInNewTab],
     }),
     shikiConfig: {
       themes: { light: "min-light", dark: "night-owl" },

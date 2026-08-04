@@ -4,17 +4,18 @@ export default defineAstroPaperConfig({
   site: {
     url: "https://blog.jasperxzy.com/",
     title: "Zhengyi's Blog",
-    description: "记录 AI、SLAM、机器人与嵌入式 AI 的学习、研究和工程实践。",
+    description:
+      "Notes on AI, SLAM, robotics, multimodal place recognition, and embedded AI engineering.",
     author: "Zhengyi Xu",
     profile: "https://jasperxzy.com",
     ogImage: "default-og.jpg",
-    lang: "zh-CN",
+    lang: "en",
     timezone: "Asia/Shanghai",
     dir: "ltr",
   },
   posts: {
-    perPage: 4,
-    perIndex: 4,
+    perPage: 10,
+    perIndex: 10,
     scheduledPostMargin: 15 * 60 * 1000,
   },
   features: {
@@ -35,10 +36,5 @@ export default defineAstroPaperConfig({
       url: "https://www.linkedin.com/in/jasperxzy0409/",
     },
     { name: "mail", url: "mailto:jasper.zhengyi.xu@gmail.com" },
-  ],
-  shareLinks: [
-    { name: "x",        url: "https://x.com/intent/post?url=" },
-    { name: "telegram", url: "https://t.me/share/url?url=" },
-    { name: "mail",     url: "mailto:?subject=See%20this%20post&body=" },
   ],
 });

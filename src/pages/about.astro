@@ -5,16 +5,18 @@ const destination = config.site.profile;
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={config.site.lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="refresh" content={`0;url=${destination}`} />
     <meta name="robots" content="noindex" />
     <link rel="canonical" href={destination} />
-    <title>跳转至个人主页</title>
+    <title>Redirecting to personal website</title>
   </head>
   <body data-pagefind-ignore>
-    <p>正在跳转至<a href={destination}>个人主页</a>……</p>
+    <p>
+      Redirecting to <a href={destination}>my personal website</a>&hellip;
+    </p>
   </body>
 </html>

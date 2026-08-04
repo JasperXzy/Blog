@@ -43,7 +43,7 @@ const t = useTranslations(locale);
   <Breadcrumb />
   <Main
     pageTitle={`${t.pages.categoryTitle}: ${categoryName}`}
-    pageDesc={`${t.pages.categoryDesc}“${categoryName}”。`}
+    pageDesc={`${t.pages.categoryDesc} “${categoryName}”.`}
   >
     <ul>
       {page.data.map(data => <Card {...data} />)}
