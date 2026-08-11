@@ -7,28 +7,38 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-app: var(--font-google-sans-code);
+  --font-app: var(--font-ibm-plex-sans);
+  --font-reading: var(--font-source-serif-4);
+  --font-code: var(--font-ibm-plex-mono);
 }
 
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
+  --background: #fbfbfa;
+  --foreground: #20242a;
+  --accent: #315a7d;
   --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --muted: #edf0f2;
+  --muted-foreground: #66707a;
+  --border: #d9dee3;
+
+  --callout-note-color-light: rgb(49, 90, 125);
+  --callout-tip-color-light: rgb(55, 112, 105);
+  --callout-warning-color-light: rgb(145, 102, 35);
 }
 
 /* Dark theme values */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --background: #181b20;
+  --foreground: #e5e8eb;
+  --accent: #8fb3d1;
+  --accent-foreground: #11161b;
+  --muted: #252b32;
+  --muted-foreground: #a8b0b8;
+  --border: #39424c;
+
+  --callout-note-color-dark: rgb(143, 179, 209);
+  --callout-tip-color-dark: rgb(126, 181, 169);
+  --callout-warning-color-dark: rgb(210, 168, 93);
 }

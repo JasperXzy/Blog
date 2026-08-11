@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "katex/dist/katex.min.css";
 @import "./theme.css";
-@import "./typography.css";
 @import "rehype-callouts/theme/obsidian";
+@import "./typography.css";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -20,6 +20,12 @@
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
+
+  body {
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 @utility max-w-app {
@@ -30,8 +36,12 @@
   @apply max-w-app mx-auto w-full px-4;
 }
 
+@utility reading-layout {
+  @apply mx-auto w-full max-w-3xl px-4;
+}
+
 @utility active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+  @apply underline decoration-2 underline-offset-8;
 }
 
 :target {

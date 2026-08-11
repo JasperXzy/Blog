@@ -107,12 +107,12 @@ const ogImage = ogImageUrl
 
   <main
     id="main-content"
-    class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
+    class:list={["reading-layout", { "mt-8": !config.features.showBackButton }]}
     data-pagefind-body
   >
     <h1
       style={{ viewTransitionName: toTransitionName(title) }}
-      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
+      class="text-foreground block text-2xl leading-tight font-semibold sm:text-3xl"
     >
       {title}
     </h1>
@@ -135,14 +135,14 @@ const ogImage = ogImageUrl
       id="article"
       class:list={[
         "mt-8 w-full",
-        "app-prose max-w-app",
+        "app-prose max-w-none",
         "prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)",
       ]}
     >
       <Content />
     </article>
 
-    <hr class="my-8 border-dashed" />
+    <hr class="my-8" />
 
     <EditPost class="sm:hidden" {hideEditPost} {post} />
 
@@ -156,7 +156,7 @@ const ogImage = ogImageUrl
       />
     </ul>
 
-    <hr class="my-8 border-dashed" />
+    <hr class="my-8" />
 
     <AdjacentPostNav {prevPost} {nextPost} />
   </main>

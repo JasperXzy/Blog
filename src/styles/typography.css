@@ -3,18 +3,31 @@
 @layer base {
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
-    @apply prose;
+    @apply prose font-reading max-w-none text-[1.0625rem] leading-[1.85];
 
     h1,
     h2,
     h3,
     h4,
     th {
-      @apply text-foreground mb-3;
+      @apply font-app text-foreground not-italic;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      @apply mt-12 mb-4 text-2xl leading-tight font-semibold;
     }
 
     h3 {
-      @apply italic;
+      @apply mt-8 mb-3 text-xl leading-snug font-semibold;
+    }
+
+    h4 {
+      @apply mt-6 mb-3 text-base leading-snug font-semibold;
+    }
+
+    p {
+      @apply my-5;
     }
 
     p,
@@ -29,8 +42,16 @@
       @apply text-foreground;
     }
 
+    strong {
+      @apply font-semibold;
+    }
+
+    .katex-display {
+      @apply max-w-full overflow-x-auto overflow-y-hidden py-1;
+    }
+
     a {
-      @apply text-foreground hover:text-accent wrap-break-word decoration-dashed underline-offset-4 focus-visible:no-underline;
+      @apply text-accent decoration-muted-foreground hover:decoration-accent wrap-break-word underline decoration-1 underline-offset-4 focus-visible:no-underline;
     }
 
     ul {
@@ -38,7 +59,7 @@
     }
 
     li {
-      @apply marker:text-accent;
+      @apply marker:text-accent my-1;
     }
 
     hr {
@@ -58,30 +79,59 @@
     }
 
     figcaption {
-      @apply opacity-75;
+      @apply font-app text-muted-foreground text-sm leading-relaxed opacity-100;
     }
 
     table {
+      @apply font-app text-[0.9375rem] leading-normal;
+
       th,
       td {
         @apply border-border border p-2;
       }
 
       th {
-        @apply py-1.5;
+        @apply bg-muted/45 py-1.5 font-semibold;
       }
     }
 
     code {
-      @apply bg-muted/75 text-foreground rounded p-1 wrap-break-word before:content-none after:content-none;
+      @apply font-code bg-muted/75 text-foreground rounded-sm p-1 text-[0.86em] font-normal wrap-break-word before:content-none after:content-none;
     }
 
     .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit p-0;
+      @apply flex-[1_0_100%] bg-inherit p-0 text-sm leading-6;
     }
 
     blockquote {
-      @apply border-s-accent/80 wrap-break-word opacity-80;
+      @apply font-reading text-foreground border-s-accent/60 border-s-2 wrap-break-word opacity-100;
+    }
+
+    blockquote p:first-of-type::before,
+    blockquote p:last-of-type::after {
+      content: none;
+    }
+
+    .callout {
+      @apply border-border bg-muted/40 my-6 rounded-sm border border-s-2 p-4 shadow-none;
+      line-height: inherit;
+      mix-blend-mode: normal;
+    }
+
+    .callout-title {
+      @apply font-app text-accent gap-2 text-sm font-semibold;
+    }
+
+    .callout-content {
+      @apply mt-2;
+    }
+
+    .callout-content > :first-child {
+      @apply mt-0;
+    }
+
+    .callout-content > :last-child {
+      @apply mb-0;
     }
 
     details:not(.callout) {
@@ -99,7 +149,7 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply outline-border flex border bg-(--shiki-light-bg) text-(--shiki-light) [&_span]:text-(--shiki-light);
+    @apply font-code outline-border flex border bg-(--shiki-light-bg) text-(--shiki-light) [&_span]:text-(--shiki-light);
   }
 
   html[data-theme="dark"] .astro-code {
@@ -122,4 +172,26 @@
       @apply border-border rounded-sm border px-0.5 py-px;
     }
   }
+}
+
+/* rehype-callouts ships unlayered styles, so this override must also remain
+   unlayered to keep callouts aligned with the restrained article theme. */
+.app-prose .callout {
+  background: color-mix(in srgb, var(--muted) 55%, transparent);
+  border: 1px solid var(--border);
+  border-inline-start: 2px solid var(--accent);
+  border-radius: 2px;
+  padding: 1rem;
+  line-height: inherit;
+  mix-blend-mode: normal;
+}
+
+/* KaTeX defaults to 1.21em, which is oversized beside Source Serif 4 and
+   makes scripts look detached from the surrounding prose. */
+.app-prose .katex {
+  font-size: 1.06em;
+}
+
+.app-prose .katex-display > .katex {
+  font-size: 1.12em;
 }
