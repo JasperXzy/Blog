@@ -313,6 +313,7 @@ const ogImage = ogImageUrl
       const image = document.createElement("img");
       image.src = src;
       image.alt = "";
+      image.style.backgroundColor = getComputedStyle(trigger).backgroundColor;
       image.className =
         "max-h-[90dvh] max-w-[90dvw] cursor-default object-contain";
 
